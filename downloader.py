@@ -38,9 +38,7 @@ class Downloader:
                     result = None
         if result is None:
             # 没有缓存 需要下载
-            print('down_before')
             self.throttle.wait(url)
-            print('down_affert')
             proxy = random.choice(self.proxies) if self.proxies else None
             headers = {'User-agent': self.user_agent}
             result = self.download(url, headers, proxy=proxy, num_retries=self.num_retries)
